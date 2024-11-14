@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -71,13 +70,14 @@
 
 
 .nav-bar2 {
-    background-color: #333;
-    color: white;
-    max-width: 1830px;
-    margin: 0 auto;
-    border-radius: 8px;
+  background-color: #333;
+  color: white;
+  width: 95%;
+  position: absolute;
+  top: 110px;
+  border-radius: 8px;
+  margin-left: 40px;
 }
-
 
 .category-grid {
   display: grid;
@@ -87,13 +87,24 @@
 
 .category-item {
   text-align: center;
-  font-size: 26px;
+  font-size: 14px;
   padding: 20px;
-  background-image: linear-gradient(#464646,#242424);
+  background-color: #333;
+  color: white;
   transition: background-color 0.3s;
-  border-color: #fff;
+  border: 1px solid #404040; 
 }
 
 .category-item:hover {
-  background-color: #555;
+  background-color: #555; /* Changes color on hover */
+}
+
+.slideshow,
+.slideshow * {
+  box-sizing: border-box;
+}
+.slideshow {
+  height: 587px;
+  position: absolute;
+  object-fit: cover;
 }
