@@ -1,3 +1,10 @@
+body {
+  background-image: url('images/BlackLeather.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -89,22 +96,33 @@
   text-align: center;
   font-size: 14px;
   padding: 20px;
-  background-color: #333;
+  background-image: linear-gradient(360deg, black, #4f333300);
   color: white;
   transition: background-color 0.3s;
-  border: 1px solid #404040; 
+  border: 1px solid #404040;
 }
 
 .category-item:hover {
-  background-color: #555; /* Changes color on hover */
+  background-color: #555;
 }
 
-.slideshow,
-.slideshow * {
-  box-sizing: border-box;
-}
 .slideshow {
   height: 587px;
   position: absolute;
   object-fit: cover;
+  top: 19%;
+  left: 2.1%;
+  height: px;
+  width: 1818px;
+}
+
+
+
+.card {
+  width: 300px;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: antiquewhite;
+  box-shadow: 0 5px 15px gray;
+  margin: 42px;
 }
