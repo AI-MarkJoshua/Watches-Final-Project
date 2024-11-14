@@ -126,3 +126,18 @@ body {
   box-shadow: 0 5px 15px gray;
   margin: 42px;
 }
+
+.background-video {
+  position: fixed; 
+  top: 50%;
+  left: 50%;
+  bottom: 10%;
+  width: 50%; 
+  height: 50%; 
+  object-fit: contain; 
+  z-index: 1; 
+}
+.content {
+  position: relative; 
+  z-index: 1; 
+}
