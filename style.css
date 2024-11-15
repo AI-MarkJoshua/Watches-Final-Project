@@ -14,7 +14,7 @@ body {
 
 
 .nav-bar {
-  background: #f1f1f1;
+  background: #161616;
   height: 124px;
   display: flex;
   justify-content: space-between;
@@ -42,6 +42,7 @@ body {
 .main-title {
   font-size: 34px;
   font-weight: bold;
+  color: #ccc;
 }
 
 .subtitle {
@@ -53,6 +54,29 @@ body {
 .nav-right {
   display: flex;
   align-items: center;
+  gap: 20px; /* Spacing between nav items */
+}
+
+.nav-right span {
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  padding: 5px 0;
+}
+
+.nav-right span:hover {
+  color: #ccc; /* Slight color change on hover */
+}
+
+.nav-right span:hover::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: white;
 }
 
 .search-box {
@@ -80,10 +104,11 @@ body {
   background-color: #333;
   color: white;
   width: 95%;
-  position: absolute;
-  top: 110px;
-  border-radius: 8px;
+  position: relative;
+  top: -10px;
+  /* border-radius: 8px; */
   margin-left: 40px;
+  z-index: 1;
 }
 
 .category-grid {
@@ -106,38 +131,20 @@ body {
   background-color: #555;
 }
 
+.video-wrapper {
+  position: relative;
+  margin: 1px auto 0; /* Creates a 1px gap above */
+  width: 95%;
+}
+
 .slideshow {
-  height: 587px;
   position: absolute;
+  top: calc(110px + 1px);
+  top: 100%;
+  width: 100%;
+  left: 7px;
+  max-width: 1788px;
+  height: 451px;
   object-fit: cover;
-  top: 19%;
-  left: 2.1%;
-  height: px;
-  width: 1818px;
-}
-
-
-
-.card {
-  width: 300px;
-  overflow: hidden;
-  border-radius: 10px;
-  background-color: antiquewhite;
-  box-shadow: 0 5px 15px gray;
-  margin: 42px;
-}
-
-.background-video {
-  position: fixed; 
-  top: 50%;
-  left: 50%;
-  bottom: 10%;
-  width: 50%; 
-  height: 50%; 
-  object-fit: contain; 
-  z-index: 1; 
-}
-.content {
-  position: relative; 
-  z-index: 1; 
+  border-top: 1px solid transparent;
 }
