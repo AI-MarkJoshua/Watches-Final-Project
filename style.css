@@ -154,16 +154,16 @@ body {
   border-top: 1px solid transparent;
 }
 
-/* General Grid Layout */
 .grid-container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  display: grid
+;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px;
   margin-top: 40px;
-  width: 80%; /* Adjusted width of the grid container */
+  width: 98%;
   margin-left: auto;
-  margin-right: auto; /* Centers the grid container */
+  margin-right: auto;
 }
 
 .grid-item {
@@ -174,7 +174,7 @@ body {
 }
 
 .grid-background-1 {
-  background-image: url('images/Watches/Watch1.jpg');
+  background-image: url('images/Watches/featured1.jpg');
   background-size: cover;
   background-position: center;
   height: 300px;
@@ -186,7 +186,7 @@ body {
 }
 
 .grid-background-2 {
-  background-image: url('images/Watches/watch3.jpg');
+  background-image: url('images/Watches/featured2.jpg');
   background-size: cover;
   background-position: center;
   height: 300px;
@@ -198,7 +198,7 @@ body {
 }
 
 .grid-background-3 {
-  background-image: url('images/Watches/Watch5.jpg');
+  background-image: url('images/Watches/featured3.jpg');
   background-size: cover;
   background-position: center;
   height: 300px;
@@ -240,13 +240,11 @@ body {
   background-color: #555;
 }
 
-
-
 .featured-products {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 products per row */
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
-  padding: 20px;
+  padding: 34px;
   margin-top: 40px;
 }
 
@@ -309,8 +307,9 @@ body {
 .add-to-cart:hover {
   background-color: #555;
 }
+
 footer {
-  background-color: gray; /* Gray background */
+  background-color: #141414;
   padding: 20px;
   color: white;
 }
@@ -321,6 +320,8 @@ footer {
   align-items: flex-start;
   width: 100%; /* Make sure it takes up the full width of the page */
 }
+
+
 
 .footer-section {
   flex: 1;
