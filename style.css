@@ -269,7 +269,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 200px; /* Adjust based on the content's height */
+  height: 150px; /* Adjust based on the content's height */
 }
 
 .description {
@@ -289,7 +289,8 @@ body {
 
 .buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .view-button,
