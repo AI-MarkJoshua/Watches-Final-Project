@@ -104,3 +104,41 @@ body {
   .cart-button:hover {
     background-color: #555;
   }
+
+  
+/* Category grid styling */
+.nav-bar2 {
+  background-color: #333;
+  color: white;
+  width: 95%;
+  position: relative;
+  top: -10px;
+  margin-left: 50px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  border: black;
+}
+
+.category-item {
+  display: block; /* Ensures the entire area is clickable */
+  text-align: center;
+  font-size: 14px;
+  padding: 20px;
+  background-image: linear-gradient(360deg, black, #4f333300);
+  color: white;
+  transition: background-color 0.3s;
+  border: 1px solid #404040;
+  text-decoration: none; /* Removes underline from links */
+}
+
+.category-item:hover {
+  background-color: #555; /* Update hover background */
+}
+
+
+  
+
+  
