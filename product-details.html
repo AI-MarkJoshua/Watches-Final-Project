@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="product-details.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="nav-left">
+            <img src="images/Background/Logowatch.png" alt="Logo" class="logo">
+            <div class="store-title">
+                <span class="main-title">WATCHES</span>
+                <span class="subtitle">Online Store</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="index.html"><span>Homepage</span></a>
+            <a href="about.html"><span>About Us</span></a> 
+            <a href="Contact.html"><span>Contact Us</span></a>
+            <input type="text" class="search-box" placeholder="Search...">
+            <button class="cart-button">My Cart</button>
+        </div>
+    </div>
+
+    <div class="product-details-container">
+        <div class="product-image">
+            <!-- The product image will be populated by JS -->
+            <img id="product-img" src="" alt="Product Image">
+        </div>
+        <div class="product-info">
+            <h1 id="product-name">Product Name</h1>
+            <p id="product-description">Product Description</p>
+            <p id="product-price">$0.00</p>
+            <button class="add-to-cart">Add to Cart</button>
+        </div>
+    </div>
+
+    <script>
+        // Function to get the product ID from the URL
+        function getProductId() {
+            const params = new URLSearchParams(window.location.search);
+            return params.get('product');
+        }
+
+        // Function to populate product details based on the product ID
+        function loadProductDetails() {
+            const productId = getProductId();
+            if (!productId) {
+                // If no product ID is found, show a default message or handle error
+                document.getElementById('product-name').textContent = "Product Not Found";
+                document.getElementById('product-description').textContent = "Sorry, this product is unavailable.";
+                document.getElementById('product-price').textContent = "$0.00";
+                return;
+            }
+
+            // Dummy product data (this should be replaced with dynamic data from a database or API)
+            const products = {
+                "1": {
+                    name: "Luxury Watch",
+                    description: "This is a detailed description of the luxury watch, with its features and specifications.",
+                    price: "$299.99",
+                    image: "images/Watches/men1.jpg"
+                },
+                "2": {
+                    name: "Sport Watch",
+                    description: "A sporty watch designed for durability and performance.",
+                    price: "$150.00",
+                    image: "images/Watches/men2.jpg"
+                },
+                "3": {
+                    name: "Smart Watch",
+                    description: "A modern smartwatch with various features for health and connectivity.",
+                    price: "$199.99",
+                    image: "images/Watches/men3.jpg"
+                }
+                // Add more products as needed
+            };
+
+            // Get the product data based on the product ID
+            const product = products[productId];
+
+            if (product) {
+                // Update the page with the product details
+                document.getElementById('product-name').textContent = product.name;
+                document.getElementById('product-description').textContent = product.description;
+                document.getElementById('product-price').textContent = product.price;
+                document.getElementById('product-img').src = product.image;
+                document.getElementById('product-img').alt = product.name;
+            } else {
+                // If no product data found for the given ID, show an error message
+                document.getElementById('product-name').textContent = "Product Not Found";
+                document.getElementById('product-description').textContent = "Sorry, this product is unavailable.";
+                document.getElementById('product-price').textContent = "$0.00";
+            }
+        }
+
+        // Call the function to load product details when the page is loaded
+        window.onload = loadProductDetails;
+    </script>
+</body>
+</html>
