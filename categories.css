@@ -7,18 +7,18 @@ body {
     padding: 0;
     min-height: 100vh; /* Ensures scrolling if content is long enough */
     overflow-x: hidden; /* Prevent horizontal scrolling */
-}
+  }
   
-* {
+  * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Helvetica;
     text-decoration: none;
-}
+  }
   
   /* Navbar styles */
-.nav-bar {
+  .nav-bar {
     background: #161616;
     height: 124px;
     display: flex;
@@ -26,53 +26,55 @@ body {
     align-items: center;
     padding: 0 20px;
     box-sizing: border-box;
-}
+  }
   
-.nav-left {
+  .nav-left {
     display: flex;
     align-items: center;
-}
+  }
   
-.logo {
+  .logo {
     width: 80px;
     margin-right: 10px;
-}
+  }
   
-.store-title {
+  .store-title {
     display: flex;
-    flex-direction: column;  
-}
+    flex-direction: column;
+  }
   
-.main-title {
+  .main-title {
     font-size: 34px;
     font-weight: bold;
     color: #ccc;
-}
+  }
   
-.subtitle {
+  .subtitle {
     font-size: 22px;
     color: #555;
-}
+  }
   
-.nav-right {
+  .nav-right {
     display: flex;
     align-items: center;
     gap: 20px;
-}
+    flex-wrap: nowrap; /* Prevents wrapping of child elements */
+  }
   
-.nav-right span {
+  .nav-right a {
+    white-space: nowrap; /* Prevents text from breaking onto a new line */
     color: white;
     font-size: 16px;
     cursor: pointer;
     position: relative;
     padding: 5px 0;
-}
+  }
   
-.nav-right span:hover {
+  .nav-right a:hover {
     color: #ccc;
-}
+  }
   
-.nav-right span:hover::after {
+  .nav-right a:hover::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -80,28 +82,30 @@ body {
     right: 0;
     height: 2px;
     background-color: white;
-}
+  }
   
-.search-box {
+  
+  .search-box {
     padding: 5px;
     margin-right: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-}
+  }
   
-.cart-button {
+  .cart-button {
     padding: 5px 10px;
     background-color: #333;
     color: white;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-}
+  }
   
-.cart-button:hover {
+  .cart-button:hover {
     background-color: #555;
-}
-
+  }
+  
+  
   /* Content container */
 .content-container {
     display: grid;
