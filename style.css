@@ -119,6 +119,7 @@ body {
 }
 
 .category-item {
+  display: block; /* Ensures the entire area is clickable */
   text-align: center;
   font-size: 14px;
   padding: 20px;
@@ -126,11 +127,13 @@ body {
   color: white;
   transition: background-color 0.3s;
   border: 1px solid #404040;
+  text-decoration: none; /* Removes underline from links */
 }
 
 .category-item:hover {
-  background-color: #555;
+  background-color: #555; /* Update hover background */
 }
+
 
 .video-grid {
   display: grid;
