@@ -138,6 +138,145 @@ body {
   background-color: #555; /* Update hover background */
 }
 
+/* Product Details Container */
+.product-details-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 60px auto;
+  padding: 30px;
+  width: 90%;
+  background: rgba(0, 0, 0, 0.9);
+  border-radius: 15px;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+}
+
+/* Left Grid */
+.left-grid {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main-product-image {
+  width: 90%;
+  height: 500px; /* Increased height */
+  margin-bottom: 30px;
+  background-color: #222;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+.main-product-image img {
+  width: 100%;
+  height: auto;
+}
+
+.thumbnail-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px; /* Increased spacing between thumbnails */
+  margin-top: 15px;
+}
+
+.thumbnail {
+  width: 80px; /* Larger thumbnails */
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.3s, border-color 0.3s;
+}
+
+.thumbnail:hover {
+  transform: scale(1.15);
+  border-color: #ccc;
+}
+
+/* Right Grid */
+.right-grid {
+  flex: 1;
+  padding-left: 50px; /* Increased padding for better spacing */
+}
+
+#product-name {
+  font-size: 40px; /* Larger font for the product name */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+#product-description {
+  font-size: 18px; /* Slightly larger text for readability */
+  line-height: 1.8; /* Increased line height for clarity */
+  margin-bottom: 30px;
+  color: #ddd;
+}
+
+#product-price {
+  font-size: 36px; /* Larger font for price emphasis */
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #f4b400;
+}
+
+.quantity-container {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* More spacing between buttons and input */
+  margin-bottom: 30px;
+}
+
+.quantity-button {
+  width: 50px; /* Larger button size */
+  height: 50px;
+  background-color: #444;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 24px; /* Larger text on buttons */
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.quantity-button:hover {
+  background-color: #666;
+}
+
+#quantity-input {
+  width: 80px; /* Larger input box */
+  height: 50px;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 18px; /* Increased font size */
+}
+
+/* Add to Cart Button */
+.add-to-cart {
+  padding: 15px 30px; /* Larger padding for better visibility */
+  background-color: #f4b400;
+  color: black;
+  font-size: 22px; /* Larger button text */
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.add-to-cart:hover {
+  background-color: #ffa733;
+}
+
+
+
+
 
   
 

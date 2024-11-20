@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="product-details.css">
 </head>
 <body>
+    <!-- Main Navigation Bar -->
     <div class="nav-bar">
         <div class="nav-left">
             <img src="images/Background/Logowatch.png" alt="Logo" class="logo">
@@ -23,6 +24,8 @@
             <button class="cart-button">My Cart</button>
         </div>
     </div>
+
+    <!-- Secondary Navigation Bar -->
     <div class="nav-bar2">
         <div class="category-grid">
           <a href="mens-watches.html" class="category-item">MEN'S WATCHES</a>
@@ -32,119 +35,105 @@
           <a href="luxury-watches.html" class="category-item">LUXURY WATCHES</a>
           <a href="sport-watches.html" class="category-item">SPORT WATCHES</a>
         </div>
-      </div>
+    </div>
 
-    
-
+    <!-- Product Details Section -->
     <div class="product-details-container">
-        <div class="product-image">
-            <!-- The product image will be populated by JS -->
-            <img id="product-img" src="" alt="Product Image">
+        <!-- Left Grid -->
+        <div class="left-grid">
+            <div class="main-product-image">
+                <img id="product-img" src="" alt="Product Image">
+            </div>
+            <div class="thumbnail-container">
+                <!-- Thumbnails will be dynamically added via JavaScript -->
+                <img class="thumbnail" src="images/Watches/men1.jpg" alt="Thumbnail 1" onclick="updateMainImage('images/Watches/men1.jpg')">
+                <img class="thumbnail" src="images/Watches/men2.jpg" alt="Thumbnail 2" onclick="updateMainImage('images/Watches/men2.jpg')">
+                <img class="thumbnail" src="images/Watches/men3.jpg" alt="Thumbnail 3" onclick="updateMainImage('images/Watches/men3.jpg')">
+                <img class="thumbnail" src="images/Watches/men4.jpg" alt="Thumbnail 4" onclick="updateMainImage('images/Watches/men4.jpg')">
+            </div>
         </div>
-        <div class="product-info">
+
+        <!-- Right Grid -->
+        <div class="right-grid">
             <h1 id="product-name">Product Name</h1>
             <p id="product-description">Product Description</p>
             <p id="product-price">$0.00</p>
+            <div class="quantity-container">
+                <button class="quantity-button" onclick="updateQuantity(-1)">-</button>
+                <input id="quantity-input" type="number" value="1" min="1">
+                <button class="quantity-button" onclick="updateQuantity(1)">+</button>
+            </div>
             <button class="add-to-cart">Add to Cart</button>
         </div>
     </div>
 
     <script>
-        // Function to get the product ID from the URL
+        // Fetch product ID from URL
         function getProductId() {
             const params = new URLSearchParams(window.location.search);
             return params.get('product');
         }
 
-        // Function to populate product details based on the product ID
+        // Update the main product image
+        function updateMainImage(imageSrc) {
+            document.getElementById('product-img').src = imageSrc;
+        }
+
+        // Handle quantity updates
+        function updateQuantity(value) {
+            const quantityInput = document.getElementById('quantity-input');
+            const newValue = parseInt(quantityInput.value) + value;
+            if (newValue > 0) quantityInput.value = newValue;
+        }
+
+        // Populate product details dynamically
         function loadProductDetails() {
             const productId = getProductId();
             if (!productId) {
-                // If no product ID is found, show a default message or handle error
                 document.getElementById('product-name').textContent = "Product Not Found";
-                document.getElementById('product-description').textContent = "Sorry, this product is unavailable.";
-                document.getElementById('product-price').textContent = "$0.00";
                 return;
             }
 
-            // Dummy product data (this should be replaced with dynamic data from a database or API)
             const products = {
                 "1": {
                     name: "Luxury Watch",
                     description: "This is a detailed description of the luxury watch, with its features and specifications.",
                     price: "$299.99",
-                    image: "images/Watches/men1.jpg"
+                    mainImage: "images/Watches/men1.jpg",
+                    thumbnails: ["images/Watches/men1.jpg", "images/Watches/men2.jpg", "images/Watches/men3.jpg", "images/Watches/men4.jpg"]
                 },
                 "2": {
                     name: "Sport Watch",
                     description: "A sporty watch designed for durability and performance.",
                     price: "$150.00",
-                    image: "images/Watches/men2.jpg"
+                    mainImage: "images/Watches/men2.jpg",
+                    thumbnails: ["images/Watches/men1.jpg", "images/Watches/men2.jpg", "images/Watches/men3.jpg", "images/Watches/men4.jpg"]
                 },
                 "3": {
-                    name: "Smart Watch",
-                    description: "A modern smartwatch with various features for health and connectivity.",
-                    price: "$199.99",
-                    image: "images/Watches/men3.jpg"
-                },
-                "4": {
-                    name: "Smart Watch",
-                    description: "A modern smartwatch with various features for health and connectivity.",
-                    price: "$199.99",
-                    image: "images/Watches/men4.jpg"
-                },
-                "5": {
-                    name: "Smart Watch",
-                    description: "A modern smartwatch with various features for health and connectivity.",
-                    price: "$199.99",
-                    image: "images/Watches/men5.jpg"
-                },
-                "6": {
-                    name: "Smart Watch",
-                    description: "A modern smartwatch with various features for health and connectivity.",
-                    price: "$199.99",
-                    image: "images/Watches/men6.jpg"
-                },
-                "7": {
-                    name: "Smart Watch",
-                    description: "A modern smartwatch with various features for health and connectivity.",
-                    price: "$199.99",
-                    image: "images/Watches/men7.jpg"
-                },
-                "8": {
-                    name: "Smart Watch",
-                    description: "A modern smartwatch with various features for health and connectivity.",
-                    price: "$199.99",
-                    image: "images/Watches/men8.jpg"
-                },
-                "9": {
-                    name: "Smart Watch",
-                    description: "A modern smartwatch with various features for health and connectivity.",
-                    price: "$199.99",
-                    image: "images/Watches/men9.jpg"
+                    name: "Sport Watch",
+                    description: "A sporty watch designed for durability and performance.",
+                    price: "$150.00",
+                    mainImage: "images/Watches/men3.jpg",
+                    thumbnails: ["images/Watches/men1.jpg", "images/Watches/men2.jpg", "images/Watches/men3.jpg", "images/Watches/men4.jpg"]
                 }
-                // Add more products as needed
+                // Add more products here
             };
 
-            // Get the product data based on the product ID
             const product = products[productId];
-
             if (product) {
-                // Update the page with the product details
                 document.getElementById('product-name').textContent = product.name;
                 document.getElementById('product-description').textContent = product.description;
                 document.getElementById('product-price').textContent = product.price;
-                document.getElementById('product-img').src = product.image;
-                document.getElementById('product-img').alt = product.name;
-            } else {
-                // If no product data found for the given ID, show an error message
-                document.getElementById('product-name').textContent = "Product Not Found";
-                document.getElementById('product-description').textContent = "Sorry, this product is unavailable.";
-                document.getElementById('product-price').textContent = "$0.00";
+                updateMainImage(product.mainImage);
+
+                const thumbnailContainer = document.querySelector('.thumbnail-container');
+                thumbnailContainer.innerHTML = product.thumbnails.map(thumbnail => `
+                    <img class="thumbnail" src="${thumbnail}" alt="Thumbnail" onclick="updateMainImage('${thumbnail}')">
+                `).join('');
             }
         }
 
-        // Call the function to load product details when the page is loaded
+        // Load product details on page load
         window.onload = loadProductDetails;
     </script>
 </body>
