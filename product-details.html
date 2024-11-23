@@ -21,7 +21,7 @@
             <a href="about.html"><span>About Us</span></a> 
             <a href="Contact.html"><span>Contact Us</span></a>
             <input type="text" class="search-box" placeholder="Search...">
-            <button class="cart-button">My Cart</button>
+            <button class="cart-button" onclick="window.location.href='cart.html'">My Cart</button>
         </div>
     </div>
 
@@ -36,66 +36,65 @@
           <a href="sport-watches.html" class="category-item">SPORT WATCHES</a>
         </div>
     </div>
-
-    <!-- Product Details Section -->
-    <div class="product-details-container">
-        <!-- Left Grid -->
-        <div class="left-grid">
-            <div class="main-product-image">
-                <img id="product-img" src="" alt="Product Image">
+        <!-- Product Details Section -->
+        <div class="product-details-container">
+            <!-- Left Grid -->
+            <div class="left-grid">
+                <div class="main-product-image">
+                    <img id="product-img" src="" alt="Product Image">
+                </div>
+                <div class="thumbnail-container">
+                    <!-- Thumbnails will be dynamically added via JavaScript -->
+                    <img class="thumbnail" src="images/Watches/men1.jpg" alt="Thumbnail 1" onclick="updateMainImage('images/Watches/men1.jpg')">
+                    <img class="thumbnail" src="images/Watches/men2.jpg" alt="Thumbnail 2" onclick="updateMainImage('images/Watches/men2.jpg')">
+                    <img class="thumbnail" src="images/Watches/men3.jpg" alt="Thumbnail 3" onclick="updateMainImage('images/Watches/men3.jpg')">
+                    <img class="thumbnail" src="images/Watches/men4.jpg" alt="Thumbnail 4" onclick="updateMainImage('images/Watches/men4.jpg')">
+                </div>
             </div>
-            <div class="thumbnail-container">
-                <!-- Thumbnails will be dynamically added via JavaScript -->
-                <img class="thumbnail" src="images/Watches/men1.jpg" alt="Thumbnail 1" onclick="updateMainImage('images/Watches/men1.jpg')">
-                <img class="thumbnail" src="images/Watches/men2.jpg" alt="Thumbnail 2" onclick="updateMainImage('images/Watches/men2.jpg')">
-                <img class="thumbnail" src="images/Watches/men3.jpg" alt="Thumbnail 3" onclick="updateMainImage('images/Watches/men3.jpg')">
-                <img class="thumbnail" src="images/Watches/men4.jpg" alt="Thumbnail 4" onclick="updateMainImage('images/Watches/men4.jpg')">
+    
+            <!-- Right Grid -->
+            <div class="right-grid">
+                <h1 id="product-name">Product Name</h1>
+                <p id="product-description">Product Description</p>
+                <p id="product-price">$0.00</p>
+                <div class="quantity-container">
+                    <button class="quantity-button" onclick="updateQuantity(-1)">-</button>
+                    <input id="quantity-input" type="number" value="1" min="1">
+                    <button class="quantity-button" onclick="updateQuantity(1)">+</button>
+                </div>
+                <button class="add-to-cart" onclick="addToCart()">Add to Cart</button>
             </div>
         </div>
-
-        <!-- Right Grid -->
-        <div class="right-grid">
-            <h1 id="product-name">Product Name</h1>
-            <p id="product-description">Product Description</p>
-            <p id="product-price">$0.00</p>
-            <div class="quantity-container">
-                <button class="quantity-button" onclick="updateQuantity(-1)">-</button>
-                <input id="quantity-input" type="number" value="1" min="1">
-                <button class="quantity-button" onclick="updateQuantity(1)">+</button>
-            </div>
-            <button class="add-to-cart">Add to Cart</button>
-        </div>
-    </div>
-
-    <script>
-        // Fetch product ID from URL
-        function getProductId() {
-            const params = new URLSearchParams(window.location.search);
-            return params.get('product');
-        }
-
-        // Update the main product image
-        function updateMainImage(imageSrc) {
-            document.getElementById('product-img').src = imageSrc;
-        }
-
-        // Handle quantity updates
-        function updateQuantity(value) {
-            const quantityInput = document.getElementById('quantity-input');
-            const newValue = parseInt(quantityInput.value) + value;
-            if (newValue > 0) quantityInput.value = newValue;
-        }
-
-        // Populate product details dynamically
-        function loadProductDetails() {
-            const productId = getProductId();
-            if (!productId) {
-                document.getElementById('product-name').textContent = "Product Not Found";
-                return;
+    
+        <script>
+            // Fetch product ID from URL
+            function getProductId() {
+                const params = new URLSearchParams(window.location.search);
+                return params.get('product');
             }
-
-            const products = {
-                "1": {
+    
+            // Update the main product image
+            function updateMainImage(imageSrc) {
+                document.getElementById('product-img').src = imageSrc;
+            }
+    
+            // Handle quantity updates
+            function updateQuantity(value) {
+                const quantityInput = document.getElementById('quantity-input');
+                const newValue = parseInt(quantityInput.value) + value;
+                if (newValue > 0) quantityInput.value = newValue;
+            }
+    
+            // Populate product details dynamically
+            function loadProductDetails() {
+                const productId = getProductId();
+                if (!productId) {
+                    document.getElementById('product-name').textContent = "Product Not Found";
+                    return;
+                }
+    
+                const products = {
+                    "1": {
                     name: "Rolex GMT Master II Black Blue Batman",
                     description: "This is a detailed description of the luxury watch, with its features and specifications.",
                     price: "$299.99",
@@ -414,26 +413,44 @@
                     mainImage: "images/Watches/sport9-z-f.jpg",
                     thumbnails:  ["images/Watches/sport9-z-f.jpg","images/Watches/sport9-z-s.jpg","images/Watches/sport9-z-b.jpg","images/Watches/sport9-z-d.jpg"]
                 }
-               
-                // Add more products here
-            };
-
-            const product = products[productId];
-            if (product) {
-                document.getElementById('product-name').textContent = product.name;
-                document.getElementById('product-description').textContent = product.description;
-                document.getElementById('product-price').textContent = product.price;
-                updateMainImage(product.mainImage);
-
-                const thumbnailContainer = document.querySelector('.thumbnail-container');
-                thumbnailContainer.innerHTML = product.thumbnails.map(thumbnail => `
-                    <img class="thumbnail" src="${thumbnail}" alt="Thumbnail" onclick="updateMainImage('${thumbnail}')">
-                `).join('');
+                };
+    
+                const product = products[productId];
+                if (product) {
+                    document.getElementById('product-name').textContent = product.name;
+                    document.getElementById('product-description').textContent = product.description;
+                    document.getElementById('product-price').textContent = product.price;
+                    updateMainImage(product.mainImage);
+    
+                    const thumbnailContainer = document.querySelector('.thumbnail-container');
+                    thumbnailContainer.innerHTML = product.thumbnails.map(image => 
+                        `<img class="thumbnail" src="${image}" alt="Thumbnail" onclick="updateMainImage('${image}')">`).join('');
+                }
             }
-        }
-
-        // Load product details on page load
-        window.onload = loadProductDetails;
-    </script>
-</body>
-</html>
+    
+            // Add product to cart
+            function addToCart() {
+                const name = document.getElementById('product-name').textContent;
+                const price = document.getElementById('product-price').textContent;
+                const image = document.getElementById('product-img').src;
+                const quantity = document.getElementById('quantity-input').value;
+    
+                const cartList = JSON.parse(localStorage.getItem("cart")) || [];
+                const item = { name, price, image, quantity };
+    
+                // Prevent duplicate items
+                if (!cartList.some(cartItem => cartItem.name === name)) {
+                    cartList.push(item);
+                    localStorage.setItem("cart", JSON.stringify(cartList));
+                    alert(name + " has been added to your cart!");
+                } else {
+                    alert(name + " is already in the cart.");
+                }
+            }
+    
+            // Load product details when the page loads
+            window.onload = loadProductDetails;
+        </script>
+    </body>
+    </html>
+    

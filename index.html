@@ -20,7 +20,7 @@
      <a href="about.html"><span>About Us</span></a> 
      <a href="Contact.html"><span>Contact Us</span></a>
       <input type="text" class="search-box" placeholder="Search...">
-      <button class="cart-button">My Cart</button>
+      <button class="cart-button" onclick="window.location.href='cart.html'">My Cart</button>
     </div>
   </div>
   <div class="background-image"></div>
@@ -88,7 +88,7 @@
       </div>
       <div class="buttons">
         <a href="mens-watches.html" class="view-button">View</a>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Rolex GMT Master II Black Blue', '$51,159.00', 'images/Watches/sport9-z-f.jpg')">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -104,7 +104,7 @@
       </div>
       <div class="buttons">
         <a href="smart-watches.html" class="view-button">View</a>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Rolex GMT Master II Black Blue', '$51,159.00', 'images/Watches/sport9-z-f.jpg')">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -120,7 +120,7 @@
       </div>
       <div class="buttons">
         <a href="luxury-watches.html" class="view-button">View</a>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Rolex GMT Master II Black Blue', '$51,159.00', 'images/Watches/sport9-z-f.jpg')">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -136,7 +136,7 @@
       </div>
       <div class="buttons">
         <a href="mens-watches.html" class="view-button">View</a>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Rolex GMT Master II Black Blue', '$51,159.00', 'images/Watches/sport9-z-f.jpg')">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -152,7 +152,7 @@
       </div>
       <div class="buttons">
         <a href="sport-watches.html" class="view-button">View</a>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Rolex GMT Master II Black Blue', '$51,159.00', 'images/Watches/sport9-z-f.jpg')">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -168,7 +168,7 @@
       </div>
       <div class="buttons">
         <a href="luxury-watches.html" class="view-button">View</a>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Rolex GMT Master II Black Blue', '$51,159.00', 'images/Watches/sport9-z-f.jpg')">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -184,7 +184,7 @@
       </div>
       <div class="buttons">
         <a href="smart-watches.html" class="view-button">View</a>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Rolex GMT Master II Black Blue', '$51,159.00', 'images/Watches/sport9-z-f.jpg')">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -200,7 +200,7 @@
       </div>
       <div class="buttons">
         <a href="sport-watches.html" class="view-button">View</a>
-        <button class="add-to-cart">Add to Cart</button>
+        <button class="add-to-cart" onclick="addToCart('Rolex GMT Master II Black Blue', '$51,159.00', 'images/Watches/sport9-z-f.jpg')">Add to Cart</button>
       </div>
     </div>
   </div>
@@ -242,13 +242,19 @@
   </div>
 </footer>
 
+<script>
+  function addToCart(name, price, image) {
+      var cartList = JSON.parse(localStorage.getItem("cart")) || [];
 
-
-
-
-  
-  
-  
-  
+      // Prevent duplicate items
+      if (!cartList.some(item => item.name === name)) {
+          cartList.push({ name, price, image });
+          localStorage.setItem("cart", JSON.stringify(cartList));
+          alert(name + " has been added to your cart!");
+      } else {
+          alert(name + " is already in the cart.");
+      }
+  }
+</script> 
 </body>
 </html>

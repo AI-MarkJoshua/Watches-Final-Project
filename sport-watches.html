@@ -20,7 +20,7 @@
          <a href="about.html"><span>About Us</span></a> 
          <a href="Contact.html"><span>Contact Us</span></a>
           <input type="text" class="search-box" placeholder="Search...">
-          <button class="cart-button">My Cart</button>
+          <button class="cart-button" onclick="window.location.href='cart.html'">My Cart</button>
         </div>
       </div>
       <div class="background-image"></div>
@@ -47,7 +47,7 @@
                         <p class="product-price">$56,423.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Rolex Yachtmaster Platinum Dial Bezel Steel Mens', '$56,423.00', 'images/Watches/sport1-r-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=46" class="view-details">View</a>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         <p class="product-price">$42,125.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Rolex Submariner 41 Steel Yellow Gold Blue Dial', '$42,125.00', 'images/Watches/sport2-r-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=47" class="view-details">View</a>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         <p class="product-price">$41,946.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Rolex Daytona Ceramic Bezel White Panda Dial', '$41,946.00', 'images/Watches/sport3-r-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=48" class="view-details">View</a>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                         <p class="product-price">$65,322.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Breitling Top Time Ford Mustang Limited Edition', '$65,322.00', 'images/Watches/sport4-b-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=49" class="view-details">View</a>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                         <p class="product-price">$39,876.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Breitling Chronomat B01 Rose Gold Grey Dial Mens', '$39,876.00', 'images/Watches/sport5-b-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=50" class="view-details">View</a>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                         <p class="product-price">$29,487,00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Breitling Bentley Motors GT Mother of Pearl Dial', '$29,487,00', 'images/Watches/sport6-b-f.jpg ')">Add to Cart</button>
                         <a href="product-details.html?product=51" class="view-details">View</a>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                         <p class="product-price">$39,789.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Zenith El Primero Rattrapante Chronograph Steel', '$39,789.00', 'images/Watches/sport7-z-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=52" class="view-details">View</a>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                         <p class="product-price">$38,753.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Zenith Chronomaster Sport 41mm Steel Mens', '$38,753.00', 'images/Watches/sport8-z-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=53" class="view-details">View</a>
                     </div>
                 </div>
@@ -132,10 +132,10 @@
                     <img src="images/Watches/sport9-z-f.jpg" alt="sport 9" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Zenith Defy 21 Ultraviolet Titanium Mens Watch</h3>
-                        <p class="product-price">$299.99</p>
+                        <p class="product-price">$51,159.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Zenith Defy 21 Ultraviolet Titanium Mens Watch', '$51,159.00', 'images/Watches/sport9-z-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=54" class="view-details">View</a>
                     </div>
                 </div>
@@ -145,7 +145,19 @@
         </div>
     </div>
     
-</body>
-</html>
+    <script>
+        function addToCart(name, price, image) {
+            var cartList = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Prevent duplicate items
+            if (!cartList.some(item => item.name === name)) {
+                cartList.push({ name, price, image });
+                localStorage.setItem("cart", JSON.stringify(cartList));
+                alert(name + " has been added to your cart!");
+            } else {
+                alert(name + " is already in the cart.");
+            }
+        }
+    </script>
 </body>
 </html>

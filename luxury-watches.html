@@ -9,23 +9,24 @@
 <body>
     <div class="nav-bar">
         <div class="nav-left">
-          <img src="images/Background/Logowatch.png" alt="Logo" class="logo">
-          <div class="store-title">
-            <span class="main-title">WATCHES</span>
-            <span class="subtitle">Online Store</span>
-          </div>
+            <img src="images/Background/Logowatch.png" alt="Logo" class="logo">
+            <div class="store-title">
+                <span class="main-title">WATCHES</span>
+                <span class="subtitle">Online Store</span>
+            </div>
         </div>
         <div class="nav-right">
-          <a href="index.html"><span>Homepage</span></a>
-         <a href="about.html"><span>About Us</span></a> 
-         <a href="Contact.html"><span>Contact Us</span></a>
-          <input type="text" class="search-box" placeholder="Search...">
-          <button class="cart-button">My Cart</button>
+            <a href="index.html"><span>Homepage</span></a>
+            <a href="about.html"><span>About Us</span></a>
+            <a href="Contact.html"><span>Contact Us</span></a>
+            <input type="text" class="search-box" placeholder="Search...">
+            <button class="cart-button" onclick="window.location.href='cart.html'">My Cart</button>
         </div>
-      </div>
-      <div class="background-image"></div>
+    </div>
 
-      <div class="content-container">
+    <div class="background-image"></div>
+
+    <div class="content-container">
         <div class="left-grid">
             <h2>Categories</h2>
             <ul class="categories-list">
@@ -40,6 +41,7 @@
         <div class="right-grid">
             <h2>Luxury Watches</h2>
             <div class="product-list">
+              <!-- Luxury 1 -->
                 <div class="product-card">
                     <img src="images/Watches/lux1-o-f.jpg" alt="luxury1 1" class="product-image">
                     <div class="product-info">
@@ -47,10 +49,11 @@
                         <p class="product-price">$12,448.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Omega Seamaster Black Ceramic Rose Gold', '$12,448.00', 'images/Watches/lux1-o-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=37" class="view-details">View</a>
                     </div>
                 </div>
+                <!-- Luxury 2 -->
                 <div class="product-card">
                     <img src="images/Watches/lux2-o-f.jpg" alt="luxury 2" class="product-image">
                     <div class="product-info">
@@ -58,7 +61,7 @@
                         <p class="product-price">$11,685.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Omega Planet Ocean Deep Black Ceramic GMT', '$11,685.00', 'images/Watches/lux2-o-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=38" class="view-details">View</a>
                     </div>
                 </div>
@@ -66,10 +69,10 @@
                     <img src="images/Watches/lux3-o-f.jpg" alt="luxury 3" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Omega Seamaster Planet Ocean Rose Gold</h3>
-                        <p class="product-price">$29,587.00/p>
+                        <p class="product-price">$29,587.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Omega Seamaster Planet Ocean Rose Gold', '$29,587.00', 'images/Watches/lux3-o-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=39" class="view-details">View</a>
                     </div>
                 </div>
@@ -80,7 +83,7 @@
                         <p class="product-price">$62,981.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Hublot Big Bang King Power Oceanographic Mens', '$62,981.00', 'images/Watches/lux4-h-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=40" class="view-details">View</a>
                     </div>
                 </div>
@@ -91,32 +94,35 @@
                         <p class="product-price">$53,121.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Hublot Big Bang Black Magic Ceramic Titanium', '$53,121.00', 'images/Watches/lux5-h-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=41" class="view-details">View</a>
                     </div>
                 </div>
+                
                 <div class="product-card">
                     <img src="images/Watches/lux6-h-f.jpg" alt="luxury 6" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Hublot Ferrari Unico Carbon Limited Edition </h3>
-                        <p class="product-price">$80,653.00 /p>
+                        <p class="product-price">$80,653.00 </p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Hublot Ferrari Unico Carbon Limited Edition ', '$80,653.00 ', 'images/Watches/lux6-h-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=42" class="view-details">View</a>
                     </div>
                 </div>
+                
                 <div class="product-card">
                     <img src="images/Watches/lux7-h-f.jpg" alt="luxury 7" class="product-image">
                     <div class="product-info">
-                        <h3 class="product-name">Tag Heuer Carrera Chronograph Green Dial Steel</h3>
+                        <h3 class="product-name">Tag Heuer Carrera Chronograph Green Dial Steel </h3>
                         <p class="product-price">$68,876.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Tag Heuer Carrera Chronograph Green Dial Steel ', '$68,876.00', 'images/Watches/lux7-h-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=43" class="view-details">View</a>
                     </div>
                 </div>
+
                 <div class="product-card">
                     <img src="images/Watches/lux8-h-f.jpg" alt="luxury 8" class="product-image">
                     <div class="product-info">
@@ -124,10 +130,11 @@
                         <p class="product-price">$54,981.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Tag Heuer Carrera Chronograph Blue Dial Steel ', '$54,981.00', 'images/Watches/lux8-h-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=44" class="view-details">View</a>
                     </div>
                 </div>
+
                 <div class="product-card">
                     <img src="images/Watches/lux9-h-f.jpg" alt="luxury 9" class="product-image">
                     <div class="product-info">
@@ -135,19 +142,28 @@
                         <p class="product-price">$83,510.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Tag Heuer Carrera Brown Skeleton Dial', '$83,510.00', 'images/Watches/lux9-h-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=45" class="view-details">View</a>
                     </div>
                 </div>
-                
                
-                
-                <!-- Add more products here -->
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+
+    <script>
+        function addToCart(name, price, image) {
+            var cartList = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Prevent duplicate items
+            if (!cartList.some(item => item.name === name)) {
+                cartList.push({ name, price, image });
+                localStorage.setItem("cart", JSON.stringify(cartList));
+                alert(name + " has been added to your cart!");
+            } else {
+                alert(name + " is already in the cart.");
+            }
+        }
+    </script>
 </body>
 </html>

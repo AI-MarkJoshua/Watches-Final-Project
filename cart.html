@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Cart</title>
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <div class="nav-bar">
+        <div class="nav-left">
+            <img src="images/Background/Logowatch.png" alt="Logo" class="logo">
+            <div class="store-title">
+                <span class="main-title">WATCHES</span>
+                <span class="subtitle">Online Store</span>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="index.html"><span>Homepage</span></a>
+            <a href="about.html"><span>About Us</span></a>
+            <a href="Contact.html"><span>Contact Us</span></a>
+            <input type="text" class="search-box" placeholder="Search...">
+            <button class="cart-button" onclick="window.location.href='cart.html'">My Cart</button>
+        </div>
+    </div>
+
+    <div class="nav-bar2">
+        <div class="category-grid">
+          <a href="mens-watches.html" class="category-item">MEN'S WATCHES</a>
+          <a href="womens-watches.html" class="category-item">WOMEN'S WATCHES</a>
+          <a href="kids-watches.html" class="category-item">KID'S WATCHES</a>
+          <a href="smart-watches.html" class="category-item">SMART WATCHES</a>
+          <a href="luxury-watches.html" class="category-item">LUXURY WATCHES</a>
+          <a href="sport-watches.html" class="category-item">SPORT WATCHES</a>
+        </div>
+    </div>
+
+    <div class="cart-container">
+        <h2 style="color: white">Your Cart</h2>
+        <div class="cart-section">
+            <div class="left-grid" id="cart-items"></div>
+            <div class="right-grid">
+                <div id="cart-total">
+                    <h3>Order Summary</h3>
+                    <p>Total: <span id="total-amount">$0.00</span></p>
+                    <button class="checkout-button" onclick="proceedToCheckout()">Proceed to Checkout</button>
+                    <button class="clear-all-button" onclick="clearAllCart()">Clear All</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load cart items from localStorage
+        function loadCartItems() {
+            const cartList = JSON.parse(localStorage.getItem("cart")) || [];
+            const cartItemsContainer = document.getElementById("cart-items");
+            let totalAmount = 0;
+
+            if (cartList.length === 0) {
+                cartItemsContainer.innerHTML = "<p>Your cart is empty.</p>";
+            } else {
+                cartItemsContainer.innerHTML = cartList.map((item, index) => {
+                    const itemPrice = parseFloat(item.price.replace('$', '').replace(',', ''));
+                    const itemTotal = itemPrice * (item.quantity || 1);
+                    totalAmount += itemTotal;
+
+                    return `
+                        <div class="cart-item">
+                            <img src="${item.image}" alt="${item.name}" class="cart-item-image">
+                            <div class="cart-item-details">
+                                <h3>${item.name}</h3>
+                                <p>${item.price}</p>
+                            </div>
+                            <button class="remove-button" onclick="removeItem(${index})">Remove</button>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Update total amount in the order summary
+            document.getElementById("total-amount").textContent = `$${totalAmount.toFixed(2)}`;
+        }
+
+        // Remove a specific item from the cart
+        function removeItem(index) {
+            const cartList = JSON.parse(localStorage.getItem("cart")) || [];
+            cartList.splice(index, 1); // Remove item at the given index
+            localStorage.setItem("cart", JSON.stringify(cartList)); // Save updated cart to localStorage
+            loadCartItems(); // Reload the cart to reflect changes
+        }
+
+        // Clear all items from the cart
+        function clearAllCart() {
+            localStorage.removeItem("cart"); // Remove cart from localStorage
+            loadCartItems(); // Reload the cart to reflect changes
+        }
+
+        // Proceed to checkout (simulated)
+        function proceedToCheckout() {
+            alert("Proceeding to checkout...");
+        }
+
+        // Load the cart items when the page loads
+        window.onload = loadCartItems;
+    </script>
+</body>
+</html>

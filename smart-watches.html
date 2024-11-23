@@ -20,7 +20,7 @@
          <a href="about.html"><span>About Us</span></a> 
          <a href="Contact.html"><span>Contact Us</span></a>
           <input type="text" class="search-box" placeholder="Search...">
-          <button class="cart-button">My Cart</button>
+          <button class="cart-button" onclick="window.location.href='cart.html'">My Cart</button>
         </div>
       </div>
       <div class="background-image"></div>
@@ -41,13 +41,13 @@
             <h2>Smart Watches</h2>
             <div class="product-list">
                 <div class="product-card">
-                    <img src="images/Watches/smart1-v-f.jpg" alt="smart 1" class="product-image">
+                    <img src="images/Watches/smart1-v-f.jpg" alt="Smart 1" class="product-image">
                     <div class="product-info">
                         <h3 class="product-name">Versa 3 Green Smartwatch</h3>
                         <p class="product-price">$340.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Versa 3 Green Smartwatch', '$340.00', 'images/Watches/smart1-v-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=28" class="view-details">View</a>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         <p class="product-price">$340.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Versa 3 Purple Smartwatch', '$340.00', 'images/Watches/smart2-v-f.webp')">Add to Cart</button>
                         <a href="product-details.html?product=29" class="view-details">View</a>
                     </div>
                 </div>
@@ -69,21 +69,23 @@
                         <p class="product-price">$400.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Versa 4 Smartwatch', '$400.00', 'images/Watches/smart3-v-f.webp')">Add to Cart</button>
                         <a href="product-details.html?product=30" class="view-details">View</a>
                     </div>
                 </div>
+
                 <div class="product-card">
-                    <img src="images/Watches/smart4-t-f.jpg" alt="smart 4" class="product-image">
+                    <img src="images/Watches/smart4-t-f.jpg" alt="smart 3" class="product-image">
                     <div class="product-info">
-                        <h3 class="product-name">Titan Smartwatch</h3>
-                        <p class="product-price">$343.00</p>
+                        <h3 class="product-name">Titan SmartWatch</h3>
+                        <p class="product-price">$400.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Titan SmartWatch', '$343.00', 'images/Watches/smart4-t-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=31" class="view-details">View</a>
                     </div>
                 </div>
+
                 <div class="product-card">
                     <img src="images/Watches/smart5-f-f.jpg" alt="smart 5" class="product-image">
                     <div class="product-info">
@@ -91,7 +93,7 @@
                         <p class="product-price">$350.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Fitbit Sense 2 Smart', '$350.00', 'images/Watches/smart5-f-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=32" class="view-details">View</a>
                     </div>
                 </div>
@@ -102,7 +104,7 @@
                         <p class="product-price">$375.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Fitbit Versa 4 Smart', '$375.00', 'images/Watches/smart6-f-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=33" class="view-details">View</a>
                     </div>
                 </div>
@@ -113,7 +115,7 @@
                         <p class="product-price">$410.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Axis Fit Smart', '$410.00', 'images/Watches/smart7-a-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=34" class="view-details">View</a>
                     </div>
                 </div>
@@ -124,7 +126,7 @@
                         <p class="product-price">$350.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Fastrack Smart Smart', '$350.00', 'images/Watches/smart8-fr-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=35" class="view-details">View</a>
                     </div>
                 </div>
@@ -135,7 +137,7 @@
                         <p class="product-price">$405.00</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Fitbit Luxe Smartwatch ', '$405.00', 'images/Watches/smart9-f-f.jpg')">Add to Cart</button>
                         <a href="product-details.html?product=36" class="view-details">View</a>
                     </div>
                 </div>
@@ -144,8 +146,19 @@
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+    <script>
+        function addToCart(name, price, image) {
+            var cartList = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Prevent duplicate items
+            if (!cartList.some(item => item.name === name)) {
+                cartList.push({ name, price, image });
+                localStorage.setItem("cart", JSON.stringify(cartList));
+                alert(name + " has been added to your cart!");
+            } else {
+                alert(name + " is already in the cart.");
+            }
+        }
+    </script>
 </body>
 </html>
