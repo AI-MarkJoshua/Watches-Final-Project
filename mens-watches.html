@@ -47,7 +47,8 @@
                         <p class="product-price">$13,725</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <!-- copy button -->
+                        <button class="add-to-cart" onclick="addToCart('Rolex GMT Master II Black Blue Batman', '$13,725', 'images/Watches/men-r-f.jpg')">Add to Cart</button>
                         <!-- Link to the product details page -->
                         <a href="product-details.html?product=1" class="view-details">View</a>
                     </div>
@@ -152,5 +153,19 @@
             </div>
         </div>
     </div>
+    <script>
+        function addToCart(name, price, image) {
+            var cartList = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Prevent duplicate items
+            if (!cartList.some(item => item.name === name)) {
+                cartList.push({ name, price, image });
+                localStorage.setItem("cart", JSON.stringify(cartList));
+                alert(name + " has been added to your cart!");
+            } else {
+                alert(name + " is already in the cart.");
+            }
+        }
+    </script>
 </body>
 </html>
