@@ -43,11 +43,11 @@
                 <div class="product-card">
                     <img src="images/Watches/women1-r-f.jpg" alt="women 1" class="product-image">
                     <div class="product-info">
-                        <h3 class="product-name">Rolex Datejust 41 Steel Everose Gold </h3>
+                        <h3 class="product-name">Rolex Datejust 41 Steel Everose Gold</h3>
                         <p class="product-price">$18,750</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Rolex Datejust 41 Steel Everose Gold','$18,750', 'images/Watches/women1-r-f.jpg')">Add to Cart</button>    
                         <a href="product-details.html?product=10" class="view-details">View</a>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         <p class="product-price">$18,700</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Rolex President Datejust White Gold Diamond','$18,700', 'images/Watches/women2-r-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=11" class="view-details">View</a>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         <p class="product-price">$98,500</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Rolex Pearlmaster 34 EveRose Rose Gold Diamond','$98,500', 'images/Watches/women3-r-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=12" class="view-details">View</a>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                         <p class="product-price">$33,900</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Cartier Tank Americaine Rose Gold Diamond Bezel','$33,900', 'images/Watches/women4-c-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=13" class="view-details">View</a>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                         <p class="product-price">$29,400</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Cartier Tank Francaise Small Steel Yellow Gold','$29,400', 'images/Watches/women5-c-f.jpg')">Add to Cart</button> 
                          <a href="product-details.html?product=14" class="view-details">View</a>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                         <p class="product-price">$3,850</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Cartier Tank Must Large Steel Silver Dial Diamond','$3,850', 'images/Watches/women6-c-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=15" class="view-details">View</a>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                         <p class="product-price">$12,950</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Breitling Chronomat 36 Diamond Dial Steel Rose Gold','$12,950', 'images/Watches/women7-b-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=16" class="view-details">View</a>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                         <p class="product-price">$3,950</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Breitling Starliner Green Mother of Pearl Dial','$3,950', 'images/Watches/women8-b-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=17" class="view-details">View</a>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                         <p class="product-price">$4,650</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Breitling Navitimer Automatic 35 Blue Dial','$4,650', 'images/Watches/women9-b-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=18" class="view-details">View</a>
                     </div>
                 </div>
@@ -145,8 +145,21 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function addToCart(name, price, image) {
+            var cartList = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Prevent duplicate items
+            if (!cartList.some(item => item.name === name)) {
+                cartList.push({ name, price, image });
+                localStorage.setItem("cart", JSON.stringify(cartList));
+                alert(name + " has been added to your cart!");
+            } else {
+                alert(name + " is already in the cart.");
+            }
+        }
+    </script>
     
-</body>
-</html>
 </body>
 </html>

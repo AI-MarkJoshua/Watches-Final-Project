@@ -47,7 +47,7 @@
                         <p class="product-price">$58</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Casio Baby-g BA-110-1A','$58', 'images/Watches/kids1-c-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=19" class="view-details">View</a>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                         <p class="product-price">$60</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Casio Baby-g BA-110RG-4A','$60', 'images/Watches/kids2-c-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=20" class="view-details">View</a>
                     </div>
                 </div>
@@ -69,7 +69,7 @@
                         <p class="product-price">$58</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Casio Baby-g BA-110RG-7A','$58', 'images/Watches/kids3-c-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=21" class="view-details">View</a>
                     </div>
                 </div>
@@ -80,7 +80,7 @@
                         <p class="product-price">$65</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Casio G-shock GM-S110PG-4A','$65', 'images/Watches/kids4-g-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=22" class="view-details">View</a>
                     </div>
                 </div>
@@ -91,7 +91,7 @@
                         <p class="product-price">$58</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Casio G-Shock GA-100A-9ADR Bumblebee','$58', 'images/Watches/kids5-g-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=23" class="view-details">View</a>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
                         <p class="product-price">$58</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Casio G-Shock GA-100B-4ADR Coke Red','$58', 'images/Watches/kids6-g-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=24" class="view-details">View</a>
                     </div>
                 </div>
@@ -113,7 +113,7 @@
                         <p class="product-price">$57</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Casio G-shock GA-100CF-1A9','$57', 'images/Watches/kids7-g-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=25" class="view-details">View</a>
                     </div>
                 </div>
@@ -124,7 +124,7 @@
                         <p class="product-price">$62</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Casio G-shock GA-100CM-4A','$62', 'images/Watches/kids8-g-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=26" class="view-details">View</a>
                     </div>
                 </div>
@@ -135,7 +135,7 @@
                         <p class="product-price">$57</p>
                     </div>
                     <div class="product-buttons">
-                        <button class="add-to-cart">Add to Cart</button>
+                        <button class="add-to-cart" onclick="addToCart('Casio G-shock GA-100CB-1A','$57', 'images/Watches/kids9-g-f.jpg')">Add to Cart</button> 
                         <a href="product-details.html?product=27" class="view-details">View</a>
                     </div>
                 </div>
@@ -144,8 +144,19 @@
             </div>
         </div>
     </div>
-    
-</body>
-</html>
+    <script>
+        function addToCart(name, price, image) {
+            var cartList = JSON.parse(localStorage.getItem("cart")) || [];
+
+            // Prevent duplicate items
+            if (!cartList.some(item => item.name === name)) {
+                cartList.push({ name, price, image });
+                localStorage.setItem("cart", JSON.stringify(cartList));
+                alert(name + " has been added to your cart!");
+            } else {
+                alert(name + " is already in the cart.");
+            }
+        }
+    </script>
 </body>
 </html>
